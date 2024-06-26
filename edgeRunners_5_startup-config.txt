@@ -4,7 +4,7 @@ no service timestamps log datetime msec
 no service timestamps debug datetime msec
 no service password-encryption
 !
-hostname edgeRunner
+hostname Router
 !
 !
 !
@@ -13,15 +13,13 @@ hostname edgeRunner
 !
 !
 !
-ip cef
+no ip cef
 no ipv6 cef
 !
 !
 !
-username dima password 0 cisco
 !
-!
-license udi pid CISCO2911/K9 sn FTX1524IRTZ-
+license udi pid CISCO2911/K9 sn FTX1524WHP6-
 !
 !
 !
@@ -31,8 +29,6 @@ license udi pid CISCO2911/K9 sn FTX1524IRTZ-
 !
 !
 !
-ip ssh version 1
-ip domain-name dima
 !
 !
 spanning-tree mode pvst
@@ -44,43 +40,35 @@ spanning-tree mode pvst
 !
 interface GigabitEthernet0/0
  ip address 87.7.25.2 255.255.255.0
- ip access-group from_out in
+ ip access-group TEST out
  ip nat outside
  duplex auto
  speed auto
 !
 interface GigabitEthernet0/1
  no ip address
- ip access-group from_in in
  duplex auto
  speed auto
-!
-interface GigabitEthernet0/1.1
- no ip address
 !
 interface GigabitEthernet0/1.2
  encapsulation dot1Q 2
  ip address 192.27.25.1 255.255.255.0
- ip access-group from_in in
  ip nat inside
 !
 interface GigabitEthernet0/1.3
  encapsulation dot1Q 3
  ip address 192.7.25.1 255.255.255.0
- ip access-group from_in in
  ip nat inside
 !
 interface GigabitEthernet0/1.4
  encapsulation dot1Q 4
  ip address 192.17.25.1 255.255.255.0
- ip access-group from_in in
  ip nat inside
 !
 interface GigabitEthernet0/1.5
  encapsulation dot1Q 5
  ip address 192.37.25.1 255.255.255.0
  ip helper-address 192.27.25.2
- ip access-group from_in in
  ip nat inside
 !
 interface GigabitEthernet0/2
@@ -102,28 +90,13 @@ ip flow-export version 9
 !
 !
 ip access-list standard FOR-NAT
- permit any
-ip access-list extended from_out
- deny ip any 192.0.0.0 0.255.255.255
- permit ip any host 87.7.25.2
- permit tcp host 89.7.25.2 host 87.7.25.2 eq 22
-ip access-list extended from_in
- deny ip 192.27.25.0 0.0.0.255 host 89.7.25.2
- permit ip host 192.17.25.3 host 88.7.25.2
- permit ip 192.7.25.0 0.0.0.255 host 88.7.25.2
- permit ip any host 89.7.25.2
- permit ip 192.7.25.0 0.0.0.255 host 192.27.25.3
- permit ip host 192.27.25.3 192.7.25.0 0.0.0.255
- permit ip 192.17.25.0 0.0.0.255 host 192.27.25.3
- permit ip host 192.27.25.3 192.17.25.0 0.0.0.255
- deny ip any host 192.27.25.3
- deny ip any host 88.7.25.2
- permit tcp 192.7.25.0 0.0.0.255 host 192.7.25.1 eq 22
- permit ip any any
-ip access-list standard to_ssh
- permit host 89.7.25.2
  permit 192.7.25.0 0.0.0.255
- deny any
+ permit 192.17.25.0 0.0.0.255
+ permit 192.37.25.0 0.0.0.255
+ deny 192.27.25.0 0.0.0.255
+ip access-list standard TEST
+ deny 192.27.25.0 0.0.0.255
+ permit any
 !
 !
 !
@@ -135,10 +108,7 @@ line con 0
 line aux 0
 !
 line vty 0 4
- access-class to_ssh in
- ipv6 access-class to_ssh in
- login local
- transport input ssh
+ login
 !
 !
 !
