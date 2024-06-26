@@ -1,5 +1,5 @@
 # Computer networks CiscoPacketTracer 04.12.2023
-## Ниже представлены 6 настроенных компьютерных сетей в Cisco Packet Tracer, в которых реализованы базовые сетевые протоколы
+## Ниже представлены 6 настроенных компьютерных сетей в Cisco Packet Tracer([скачать можно по ссылке](https://netacad.sadlab.su/)), в которых реализованы базовые сетевые протоколы
 ### 1. Ограничение доступа сетей друг-другу с помощью VLAN
 ![image](https://github.com/DmitryZSer/Computer-networks-CiscoPacketTracer/assets/128312523/aa970181-9bd2-489c-a918-f93bc034b357)
 
