@@ -33,8 +33,6 @@
 Запрос на получение ip адреса перенаправляется из __edgeRunners__ на IN-WEB-SERVER, DHTP
 > [Конфигурация маршруторизаторе внутренней сети (edgeRunners)](edgeRunners_5_startup-config.txt)
 
-![image](https://github.com/DmitryZSer/Computer-networks-CiscoPacketTracer/assets/128312523/f9dd8be7-07a3-492a-a448-36622d10a498)
-
 ![image](https://github.com/DmitryZSer/Computer-networks-CiscoPacketTracer/assets/128312523/8cad9f4c-4f93-45e2-a54b-02a6622e989f)
 
 Перегруженный NAT на edgeRouter настроен так, что сеть __помеченной красным__ не имеет доступ в глобальную сеть.
