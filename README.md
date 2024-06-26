@@ -31,7 +31,7 @@
 Для сети __помеченной зеленым__ работает динамическая раздача ip адресов с внутреннего сервера
 
 Запрос на получение ip адреса перенаправляется из __edgeRunners__ на IN-WEB-SERVER, DHTP
-> [Конфигурация маршруторизаторе внутренней сети (edgeRunners)](edgeRunners_5_startup-config.txt)
+> [Конфигурация маршруторизатора внутренней сети (edgeRunners)](edgeRunners_5_startup-config.txt)
 
 ![image](https://github.com/DmitryZSer/Computer-networks-CiscoPacketTracer/assets/128312523/8cad9f4c-4f93-45e2-a54b-02a6622e989f)
 
@@ -43,6 +43,6 @@ external user может просматривать сайт с сервера i
 
 ### 6. Настройка ACL-списков
 На маршруторизаторе внутренней сети настроены ACL-списки, создающие ограничения доступа. Все условия ACL указанны на скриншоте.
-> [Конфигурация маршруторизаторе внутренней сети (edgeRunners)](edgeRunners_6_startup-config.txt)
+> [Конфигурация маршруторизатора внутренней сети (edgeRunners)](edgeRunners_6_startup-config.txt)
 
 ![image](https://github.com/DmitryZSer/Computer-networks-CiscoPacketTracer/assets/128312523/be2ce7e6-e93c-4fd0-b32b-6a9fb2a2c457)
